@@ -1,0 +1,14 @@
+.env
+.DS_Store
+Session.vim
+*/.DS_Store
+*/*/.DS_Store
+
+engine/
+plugins/
+www/dist/
+platforms/
+node_modules/
+
+config/development.json
+config/production.json

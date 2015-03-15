@@ -1,0 +1,24 @@
+{
+  "name": "ionic-starter-app",
+  "version": "0.0.1",
+  "description": "A cordova/ionic template with the main cordova plugins and ionic features ready to use",
+  "devDependencies": {
+    "del": "~1.1.1",
+    "gulp": "^3.5.6",
+    "gulp-concat": "~2.5.0",
+    "gulp-inject": "~1.1.1",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-replace-task": "*",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "~1.1.0",
+    "gulp-watch": "~4.1.1",
+    "lodash": "~3.3.0",
+    "run-sequence": "~1.0.2",
+    "shelljs": "^0.3.0",
+    "vinyl-paths": "~1.0.0",
+    "yargs": "*"
+  },
+  "cordovaPlugins": [
+    "com.ionic.keyboard"
+  ]
+}

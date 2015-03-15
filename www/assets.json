@@ -1,0 +1,15 @@
+{
+  "css": [
+    "lib/ionic/css/ionic",
+    "css/content"
+  ],
+
+  "js": [
+    "lib/ionic/js/ionic.bundle",
+    "lib/ngCordova/js/ng-cordova",
+    "lib/facebookConnectPlugin",
+    "js/app",
+    "js/controllers",
+    "js/factories"
+  ]
+}

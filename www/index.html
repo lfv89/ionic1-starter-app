@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic Starter App</title>
+
+    <!-- inject:css -->
+    <!-- endinject -->
+
+  </head>
+  <body ng-app="ionic-starter-app" ng-cloak>
+    <ion-side-menus>
+      <!-- left content -->
+      <ion-side-menu side="left" ng-controller="SidebarCtrl">
+        <ion-content scroll="false">
+          <ion-list class="left-menu">
+            <ion-item menu-close href="#/movies">
+              <i class="ion-grid"></i>
+              <span>Movies</span>
+            </ion-item>
+            <ion-item menu-close href="#" ng-click="logout()" >
+              <i class="ion-power"></i>
+              <span>Logout</span>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-side-menu>
+
+      <!-- main content -->
+      <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar-light">
+        </ion-nav-bar>
+
+        <div class="bar bar-subheader bar-light">
+          <h2 class="title">IONIC STARTER APP</h2>
+        </div>
+
+        <div id="fb-root"></div>
+
+        <ion-nav-view animation="slide-left-right"></ion>
+      </ion-side-menu-content>
+    </ion-side-menus>
+
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="LOGIN">
+
+        <ion-content class="home has-subheader">
+          <div class="form-padding">
+            <a ng-click="facebookLogin()"
+                    id="fb-root"
+                    class="facebook button button-full button-positive">
+                    <i class="facebook-icon ion-social-facebook"></i>
+                    LOGIN WITH FACEBOOK
+            </a>
+
+            <p class="skip-login"><a href="#/movies">Skip Login</a></p>
+          </div>
+
+        </ion-content>
+
+      </ion-view>
+    </script>
+
+    <script id="movies.html" type="text/ng-template">
+      <ion-view title="MOVIES">
+
+        <ion-nav-buttons side="left">
+          <button menu-toggle="left" class="button button-icon">
+            <i class="navicon icon ion-navicon-round"></i>
+          </button>
+        </ion-nav-buttons>
+
+        <ion-content class="has-subheader">
+          <div class="list">
+            <div ng-repeat="movie in movies">
+              <a ng-href="#/movies/{{movie.id}}" class="item item-thumbnail-left">
+                <img ng-src="{{movie.image}}">
+                <h2>{{movie.name}}</h2>
+                <p>{{movie.description}}</p>
+              </a>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="movie.html" type="text/ng-template">
+      <ion-view title="{{movie.name}}">
+        <ion-nav-buttons side="left">
+          <button menu-toggle="left" class="button button-icon">
+            <i class="navicon icon ion-navicon-round"></i>
+          </button>
+        </ion-nav-buttons>
+        <ion-content class="event has-subheader">
+          <div class="list card">
+            <div class="item item-avatar">
+              <img ng-src="{{movie.image}}">
+              <h2>{{movie.name}}</h2>
+              <p> {{movie.description}}</p>
+            </div>
+
+            <div class="item item-body">
+              <img class="full-image" ng-src="{{movie.image}}">
+              <p>
+                <a href="#" class="subdued">1 Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                Like
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                Comment
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                Share
+              </a>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script src="../cordova.js"></script>
+
+    <!-- inject:js -->
+    <!-- endinject -->
+  </body>
+</html>
