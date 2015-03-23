@@ -1,13 +1,12 @@
 # About #
 
-This is a project to help you startup your **Ionic** mobile hybrid app. This project has many features that you can build upon:
+The ionic-starter-app project helps you to begin with your **ionic** app. It brings you those features:
 
-- hooks for basic plugin installation
-- e2e tests with protractor ready to run and be extended
-- the ionic basic structure for navbar, menus, buttons and content
-- a dev asset pipeline built with gulp (run automatic with ionic serve)
-- a build asset pipeline built with gulp (run automatic with ionic build)
-- a fallback for the facebook connect plugin that runs in the desktop web browser through the facebook JS SDK
+- **ngCordova** with the facebook plugin
+- e2e tests with **protractor** ready to run and to be extended
+- the ionic basic structure for **navbar, menus, buttons and content**
+- an **asset pipeline** built with gulp that runs both for the dev and build env
+- a **fallback for the facebook plugin** that runs in the desktop web browser through the facebook JS SDK
 
 # Installation #
 
@@ -86,7 +85,9 @@ Inside the **config dir** create a file called **development.json** and another 
 
 # Development Workflow #
 
-You should develop using the ```www/index.html```, ```www/js/*``` and ```www/css/*``` but these files will not be served. The served files will the ```www/dist/*``` files. Those files are the result of the asset pipeline feature. Also, when you create a new file, you should register it to be served in the ```www/assets.json``` file.
+You should develop using the same ```www/index.html```, ```www/js/*``` and ```www/css/*``` files that you are used to. You can also develop using either CSS or SASS. The SASS files will be automatically preprocessed.
+
+The before mentioned html, js and css files will not be served though. The served files will be the ```www/dist/*``` files. Those files are the result of the asset pipeline feature. Also, when you create a new file, it is important register it to be served in the ```www/assets.json``` file. Not that in this file the order do matter!
 
 This project have an asset pipeline created with **Gulp**, both for development and for production. The css/js/fonts/image files that will be served by the browser by the app are the result of this pipeline. Those files live inside the ```www/dist``` dir.
 
