@@ -1,12 +1,12 @@
 # About #
 
-The ionic-starter-app project helps you to begin with your **ionic** app. It brings you those features:
+This project helps you to begin with your own ionic project. **The idea is to keep it constantly updated** not only with the latest ionic features but also with the latest best practices on the hybrid mobile development. This project has the following features:
 
-- **ngCordova** with the facebook plugin
-- e2e tests with **protractor** ready to run and to be extended
-- the ionic basic structure for **navbar, menus, buttons and content**
-- an **asset pipeline** built with gulp that runs both for the dev and build env
-- a **fallback for the facebook plugin** that runs in the desktop web browser through the facebook JS SDK
+* e2e tests with **protractor**
+* a build system for production and development with **gulp**
+* navbar, menus, buttons and content based on the ionic structure
+* the facebook plugin running smothly on iOS and Andorid with **ngCordova**
+* a fallback for the facebook plugin that makes possible for it to run in the desktop web browser
 
 # Installation #
 
