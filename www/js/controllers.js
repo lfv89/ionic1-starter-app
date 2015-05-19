@@ -1,6 +1,6 @@
 angular.module('ionic-starter-app.controllers', ['ionic', 'ngSanitize'])
 
-.controller('HomeCtrl', function ($scope, $state, $http, vivoApiHost, $cordovaFacebook, $ionicViewService) {
+.controller('HomeCtrl', function ($scope, $state, $http, $cordovaFacebook, $ionicViewService) {
  if (localStorage.getItem('loginType') == 'facebook') {
     $ionicViewService.nextViewOptions({
       disableAnimate: true
