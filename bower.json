@@ -1,6 +1,7 @@
 {
   "name": "ionic-starter-app",
-  "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.1"
+  "dependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.1",
+    "ngCordova": "~0.1.23-alpha"
   }
 }
