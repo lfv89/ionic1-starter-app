@@ -4,8 +4,8 @@ Session.vim
 */.DS_Store
 */*/.DS_Store
 
+www/
 engine/
 plugins/
-www/dist/
 platforms/
 node_modules/

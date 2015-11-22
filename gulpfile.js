@@ -13,25 +13,25 @@ var minifyCss   = require('gulp-minify-css');
 var replace     = require('gulp-replace-task');
 
 var paths = {
-  distFiles:  'www/dist/**/**.*',
+  distFiles:  'www/**/**.*',
   gulpFile:   'gulpfile.js',
-  distCSS:    'www/dist/css',
-  distJS:     'www/dist/js',
-  dist:       'www/dist',
+  distCSS:    'www/css',
+  distJS:     'www/js',
+  dist:       'www',
 
   src: {
-    assetsFile: 'www/assets.json',
-    index:      'www/index.html',
-    fonts:      'www/lib/ionic/fonts/**.*',
-    imgs:       'www/img/**/**.*',
-    path:       'www/',
-    css:        'www/css/**/**.*',
-    js:         'www/js/**/**.*'
+    assetsFile: 'src/assets.json',
+    index:      'src/index.html',
+    fonts:      'src/lib/ionic/fonts/**.*',
+    imgs:       'src/img/**/**.*',
+    path:       'src/',
+    css:        'src/css/**/**.*',
+    js:         'src/js/**/**.*'
   },
 
   dest: {
-    fonts: 'www/dist/fonts',
-    imgs:  'www/dist/img'
+    fonts: 'www/fonts',
+    imgs:  'www/img'
   },
 
   configFiles: {

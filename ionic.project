@@ -2,9 +2,8 @@
   "name": "ionic-starter-app",
   "app_id": "cc58da8c",
   "documentRoot": "www",
-  "createDocumentRoot": true,
   "watchPatterns": [
-    "www/dist/**/*"
+    "src/**/*"
   ],
   "gulpStartupTasks": [
     "dev:pipeline"
