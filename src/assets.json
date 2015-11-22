@@ -7,9 +7,11 @@
   "js": [
     "lib/ionic/js/ionic.bundle",
     "lib/ngCordova/js/ng-cordova",
-    "lib/facebookConnectPlugin",
+
+    "vendor/facebookConnectPlugin",
+
     "js/app",
-    "js/controllers",
-    "js/factories"
+    "js/factories",
+    "js/controllers"
   ]
 }

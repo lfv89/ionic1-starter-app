@@ -67,13 +67,13 @@ body.grade-c {
   margin-top: -1px;
 
   // Prevents any distortion of lines
-  padding-top:1px;
+  padding-top: 1px;
+  margin-bottom: -1px;
 
   width: auto;
   height: auto;
 }
 
-.scroll-content-false,
 .menu .scroll-content.scroll-content-false{
   z-index: $z-index-scroll-content-false;
 }
@@ -97,6 +97,11 @@ body.grade-c {
   @include text-size-adjust(none);
   @include transform-origin(left, top);
 }
+/**
+ * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
+ * https://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
+ */
+@-ms-viewport { width: device-width; }
 
 // Scroll bar styles
 .scroll-bar {
@@ -168,16 +173,10 @@ ion-infinite-scroll {
     font-size: 30px;
     color: $scroll-refresh-icon-color;
   }
-  .icon:before,
-  .spinner{
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-  }
   &:not(.active){
     .spinner,
     .icon:before{
-      -webkit-transform: translate3d(-1000px,0,0);
-      transform: translate3d(-1000px,0,0);
+      display:none;
     }
   }
 }
