@@ -13,11 +13,7 @@ var minifyCss   = require('gulp-minify-css');
 var replace     = require('gulp-replace-task');
 
 var paths = {
-  distFiles:  'www/**/**.*',
   gulpFile:   'gulpfile.js',
-  distCSS:    'www/css',
-  distJS:     'www/js',
-  dist:       'www',
 
   src: {
     assetsFile: 'src/assets.json',
@@ -29,16 +25,20 @@ var paths = {
     js:         'src/js/**/**.*'
   },
 
-  dest: {
+  dist: {
+    files: 'www/**/**.*',
     fonts: 'www/fonts',
-    imgs:  'www/img'
+    path:  'www',
+    imgs:  'www/img',
+    css:   'www/css',
+    js:    'www/js'
   },
 
   configFiles: {
     dev:  "config/development.json",
     prod: "config/production.json"
   }
-};
+}
 
 var port = 8100;
 
@@ -62,17 +62,17 @@ gulp.task('devTasks', function (callback) {
 });
 
 gulp.task('dev:clean', function () {
-  return gulp.src(paths.distFiles).pipe(vinylPaths(del));
+  return gulp.src(paths.dist.files).pipe(vinylPaths(del));
 });
 
 gulp.task('dev:processFonts', function () {
   return gulp.src(paths.src.fonts)
-             .pipe(gulp.dest(paths.dest.fonts));
+             .pipe(gulp.dest(paths.dist.fonts));
 });
 
 gulp.task('dev:processImgs', function () {
   return gulp.src(paths.src.imgs)
-             .pipe(gulp.dest(paths.dest.imgs));
+             .pipe(gulp.dest(paths.dist.imgs));
 });
 
 gulp.task('dev:processCSS', function (done) {
@@ -98,7 +98,7 @@ gulp.task('dev:processCSS', function (done) {
 
   return gulp.src(sources)
              .pipe(sass({ errLogToConsole: true }))
-             .pipe(gulp.dest(paths.distCSS))
+             .pipe(gulp.dest(paths.dist.css))
 });
 
 gulp.task('dev:processJS', function () {
@@ -117,18 +117,18 @@ gulp.task('dev:processJS', function () {
 
   return gulp.src(sources)
              .pipe(replace({ patterns: patterns }))
-             .pipe(gulp.dest(paths.distJS));
+             .pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('dev:inject', function () {
   var assetsCSS  = JSON.parse(fs.readFileSync(paths.src.assetsFile, 'utf8')).css;
   var sourcesCSS = _.map(assetsCSS, function (asset) {
-    return paths.distCSS + '/' + _.last(asset.split('/')) + '.css';
+    return paths.dist.css + '/' + _.last(asset.split('/')) + '.css';
   });
 
   var assetsJS  = JSON.parse(fs.readFileSync(paths.src.assetsFile, 'utf8')).js;
   var sourcesJS = _.map(assetsJS, function (asset) {
-    return paths.distJS + '/' + _.last(asset.split('/')) + '.js';
+    return paths.dist.js + '/' + _.last(asset.split('/')) + '.js';
   });
 
   srcOptions    = { base: paths.dist, read: false }
@@ -137,7 +137,7 @@ gulp.task('dev:inject', function () {
   return gulp.src(paths.src.index)
              .pipe(inject(gulp.src(sourcesJS,  srcOptions), injectOptions))
              .pipe(inject(gulp.src(sourcesCSS, srcOptions), injectOptions))
-             .pipe(gulp.dest(paths.dist))
+             .pipe(gulp.dest(paths.dist.path))
 });
 
 gulp.task('dev:watch', function () {
@@ -240,19 +240,19 @@ gulp.task('prod:concatCSS', function () {
 
   return gulp.src(sources)
              .pipe(concat('application.css'))
-             .pipe(gulp.dest(paths.distCSS))
+             .pipe(gulp.dest(paths.dist.css))
 });
 
 gulp.task('prod:precompileCSS', function (done) {
   return gulp.src('www/dist/css/application.css')
              .pipe(sass({ errLogToConsole: true }))
-             .pipe(gulp.dest(paths.distCSS));
+             .pipe(gulp.dest(paths.dist.css));
 });
 
 gulp.task('prod:minifyCSS', function (done) {
   return gulp.src('www/dist/css/application.css')
              .pipe(minifyCss())
-             .pipe(gulp.dest(paths.distCSS));
+             .pipe(gulp.dest(paths.dist.css));
 });
 
 gulp.task('prod:concatJS', function () {
@@ -263,13 +263,13 @@ gulp.task('prod:concatJS', function () {
 
   return gulp.src(sources)
              .pipe(concat('application.js'))
-             .pipe(gulp.dest(paths.distJS))
+             .pipe(gulp.dest(paths.dist.js))
 });
 
 gulp.task('prod:minifyJS', function (done) {
   return gulp.src('www/dist/js/application.js')
              .pipe(minifyJS({ mangle: false }))
-             .pipe(gulp.dest(paths.distJS));
+             .pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('prod:replaceJS', function () {
@@ -282,7 +282,7 @@ gulp.task('prod:replaceJS', function () {
 
   return gulp.src('www/dist/js/application.js')
              .pipe(replace({ patterns: patterns }))
-             .pipe(gulp.dest(paths.distJS));
+             .pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('prod:inject', function () {
