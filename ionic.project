@@ -3,9 +3,9 @@
   "app_id": "cc58da8c",
   "documentRoot": "www",
   "watchPatterns": [
-    "src/**/*"
+    "www/**/*"
   ],
   "gulpStartupTasks": [
-    "dev:pipeline"
+    "web:run"
   ]
 }

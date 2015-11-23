@@ -19,7 +19,7 @@ angular.module('ionic-starter-app', ['ionic', 'ionic-starter-app.controllers', '
     var appKey  = '@@fbAppKey';
     var version = '@@fbVersion';
 
-    $cordovaFacebookProvider.browserInit(appKey, version);
+    // $cordovaFacebookProvider.browserInit(appKey, version);
   }
 
   $stateProvider

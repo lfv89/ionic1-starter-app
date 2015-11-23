@@ -5,10 +5,10 @@
   ],
 
   "js": [
-    "vendor/facebookConnectPlugin",
-
     "lib/ionic/js/ionic.bundle",
     "lib/ngCordova/dist/ng-cordova",
+
+    "vendor/facebookConnectPlugin",
 
     "js/app",
     "js/factories",
