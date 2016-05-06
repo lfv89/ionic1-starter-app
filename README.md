@@ -131,3 +131,11 @@ Run with **Foreman** so the .env variables (with the fb credentials) can be load
 ```
 nf run protractor www/spec/protractor.config.js
 ```
+
+## Author
+
+[twitter.com/lfv89](http://twitter.com/lfv89)
+
+[luisvasconcellos.com](http://www.luisvasconcellos.com)
+
+Feel free to talk to me about anything related to this project.
