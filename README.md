@@ -49,7 +49,7 @@ ionic platform add ios
 
 ### Basic Plugin Installation ###
 
-There is a file ```hooks/after_platform_add/010_install_plugin```. The plugins will be installed after each ```ionic platform add```` command.
+There is a file ```hooks/after_platform_add/010_install_plugin```. The plugins will be installed after each ```ionic platform add``` command.
 
 ### Facebook Plugin Installation ###
 
